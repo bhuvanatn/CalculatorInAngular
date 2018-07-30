@@ -17,11 +17,53 @@ describe("workspace-project App", () => {
   it('should add numbers', () => {
     page.navigateTo();
     page.getInputValues();
-    // element(by.model('num1')).sendKeys(4);
-    // element(by.model('num2')).sendKeys(5);
     page.getPlusButton().click();
+    expect(page.getResultValue()).toEqual('10');
+  });
+  it('should add numbers but  Test Fails ', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getPlusButton().click();
+    expect(page.getResultValue()).toEqual('11');
+  });
 
-    expect(element(by.binding('result')).getText()).
-        toEqual('9');
+  it('should Substract numbers', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getMinusButton().click();
+    expect(page.getResultValue()).toEqual('0');
+  });
+  it('should Substract numbers but  Test Fails', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getMinusButton().click();
+    expect(page.getResultValue()).toEqual('10');
+  });
+
+  it('should Multiply numbers', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getMultiButton().click();
+    expect(page.getResultValue()).toEqual('25');
+  });
+  it('should Multiply numbers but Test Fails', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getMultiButton().click();
+    expect(page.getResultValue()).toEqual('10');
+  });
+
+  it('should Divide numbers', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getDivideButton().click();
+    expect(page.getResultValue()).toEqual('1');
+  });
+
+  it('should Divide numbers but Test Fails', () => {
+    page.navigateTo();
+    page.getInputValues();
+    page.getDivideButton().click();
+    expect(page.getResultValue()).toEqual('10');
   });
 });

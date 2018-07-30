@@ -8,16 +8,25 @@ export class AppPage {
   getParagraphText() {
     return element(by.css("app-root h1")).getText();
   }
-getInputValues(){
-  return (
-    element(by.model('num1')).sendKeys(4),
-    element(by.model('num2')).sendKeys(5)
-  );
-}
+  getInputValues() {
+    return (element(by.css("#number1")).sendKeys(5),
+      element(by.css("#number2")).sendKeys(5)
+    );
+  }
+  getResultValue(){
+    return element(by.css("#result")).getText();
+  }
   getPlusButton() {
     return element(by.cssContainingText("button", "Add +"));
   }
-  getInput1value() {
-    element(by.model("num1")).sendKeys("12");
+  getMinusButton() {
+    return element(by.cssContainingText("button", "Sub -"));
   }
+  getMultiButton() {
+    return element(by.cssContainingText("button", "Multi *"));
+  }
+  getDivideButton() {
+    return element(by.cssContainingText("button", "Division /"));
+  }
+
 }
